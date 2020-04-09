@@ -1,0 +1,8 @@
+<header>
+    <div class="title">
+        <h1><a [routerLink]="pages[0].route">Recipes</a></h1>
+    </div>
+    <nav class="navigation">
+        <p *ngFor="let page of pages"><a [routerLink]="page.route" routerLinkActive="active">{{page.title}}</a></p>
+    </nav>
+</header>

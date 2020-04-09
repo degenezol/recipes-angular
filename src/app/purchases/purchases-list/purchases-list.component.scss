@@ -1,0 +1,13 @@
+.purchasesList__item {
+  border: 1px solid lightgray;
+  width: 75%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  .fa-times {
+    color: red;
+    font-size: 30px;
+    cursor: pointer;
+  }
+}

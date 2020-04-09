@@ -1,0 +1,20 @@
+<div class="mainInfo">
+  <img [src]="recipe['photoUrl'] || '/favicon.ico'" [alt]="recipe['title']">
+  <h2>{{recipe['title']}}</h2>
+  <p>{{recipe['description']}}</p>
+  <p>Category: <b>{{category}}</b></p>
+</div>
+<button class="button" [routerLink]="['../../edit', recipe['id']]"><i class="fa fa-pencil" aria-hidden="true"
+    title="Edit"></i> Edit</button>
+<button class="button" (click)="addRecipeToFavorites(recipe['id'])" *ngIf="!isFavorite"><i class="fa fa-star"
+    aria-hidden="true"></i> Add to Favorites</button>
+<button class="button" (click)="delRecipeFromFavorites(recipe['id'])" *ngIf="isFavorite"><i class="fa fa-star"
+    aria-hidden="true"></i> Delete from Favorites</button>
+<button class="button" (click)="addRecipeToFavorites(recipe['id'])"><i class="fa fa-shopping-cart"
+    aria-hidden="true"></i> Purchases</button>
+<h3>Ingredients</h3>
+<ul>
+  <li *ngFor="let ingredient of recipe['ingredients']">{{ingredient}}</li>
+</ul>
+<h3>Instructions</h3>
+<p>{{recipe['instructions']}}</p>

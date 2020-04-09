@@ -1,0 +1,6 @@
+<h2>Purchases list</h2>
+<div class="purchasesList">
+  <div class="purchasesList__item" *ngFor="let item of items">
+    <span>{{item.purchase}}</span><i class="fa fa-times" aria-hidden="true" (click)="delPurchase(item.id)"></i>
+  </div>
+</div>

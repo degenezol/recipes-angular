@@ -1,0 +1,52 @@
+<h2 *ngIf="mode === 'create'">Add new recipe</h2>
+<h2 *ngIf="mode === 'edit'">Edit recipe</h2>
+<form class="addRecipe__form" [formGroup]="recipeEditor" (ngSubmit)="submitEditor()">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title">
+    <span class="warning" *ngIf="title.invalid && title.touched">
+      <span *ngIf="recipeEditor.controls['title'].errors.required">* Title is required</span>
+      <span *ngIf="recipeEditor.controls['title'].errors.maxlength">* Title should not contain more than 50
+        symbols</span>
+    </span>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description"></textarea>
+    <span class="warning" *ngIf="description.invalid && description.touched">
+      * Description is required
+    </span>
+  </div>
+  <div>
+    <label for="photoUrl">Photo URL</label>
+    <input type="text" id="photoUrl" formControlName="photoUrl">
+    <span class="warning" *ngIf="photoUrl.invalid && photoUrl.touched">
+      <span *ngIf="recipeEditor.controls['photoUrl'].errors.required">* Photo URL is required</span>
+      <span *ngIf="recipeEditor.controls['photoUrl'].errors.pattern">* Photo URL is not correct</span>
+    </span>
+  </div>
+  <div id="ingredients" formArrayName="ingredients">
+    <label for="ingredients">Ingredients<span class="button plusButton" (click)="addIngredient()"><i class="fa fa-plus"
+          aria-hidden="true"></i></span></label>
+    <div class="ingredients" *ngFor="let ingredient of ingredients.controls; let i = index">
+      <input type="text" formControlName="{{i}}"><i class="fa fa-times" aria-hidden="true" (click)="delIngredient(i)"></i>
+    </div>
+  </div>
+  <div>
+    <label for="instructions">Instructions</label>
+    <textarea id="instructions" formControlName="instructions"></textarea>
+    <span class="warning" *ngIf="instructions.invalid && instructions.touched">
+      * Instructions are required
+    </span>
+  </div>
+  <div>
+    <label for="categoryId">Category</label><br>
+    <select id="categoryId" formControlName="categoryId">
+      <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+    </select>
+    <span class="warning block" *ngIf="categoryId.invalid && categoryId.touched">
+      * Category is required
+    </span>
+  </div>
+  <button class="button submitButton" type="submit" [disabled]="recipeEditor.invalid">{{mode.toUpperCase()}}</button>
+</form>

@@ -1,0 +1,12 @@
+<H2>Purchases</H2>
+<form #purchaseForm="ngForm" (ngSubmit)="addItem(purchaseForm.form)">
+  <label for="title">
+    <h4>Ingredients</h4>
+  </label>
+  <input class="addPurchaseInput" type="text" id="title" name="title" ngModel required #title="ngModel">
+  <button class="button" type="submit" [disabled]="!purchaseForm.form.valid">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to purchases
+  </button>
+  <p class="warning" *ngIf="!title.valid && title.touched">* Input the ingredient</p>
+</form>
+<hr>

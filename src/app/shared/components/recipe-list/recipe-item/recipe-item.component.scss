@@ -1,0 +1,37 @@
+img {
+  width: 100%;
+}
+
+i {
+  font-size: 30px;
+}
+
+.clicable {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.title {
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.likesCounter {
+  margin-left: 5px;
+  font-size  : 30px;
+}
+
+.icons {
+  display        : flex;
+  justify-content: space-between;
+
+  .fa {
+    margin: 10px;
+  }
+}

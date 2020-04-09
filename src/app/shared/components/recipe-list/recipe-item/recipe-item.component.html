@@ -1,0 +1,20 @@
+<img [src]="recipe.photoUrl" [alt]="recipe.title">
+<h3 class="title" [routerLink]="['../details', recipe.id]">{{recipe.title | shortTitle:30}}</h3>
+<p>{{recipe.description}}</p>
+<p>
+  <i class="fa fa-heart"></i>
+  <span class="likesCounter">{{recipe.likes}}</span>
+</p>
+<hr>
+<div class="icons">
+  <div class="left">
+    <i class="fa fa-thumbs-up clicable" aria-hidden="true" title="Like" (click)="addLike(recipe.id)"></i>
+    <i class="fa fa-thumbs-down clicable" aria-hidden="true" title="Dislike" (click)="addDislike(recipe.id)"></i>
+  </div>
+  <div class="right">
+    <i class="fa fa-eye clicable" aria-hidden="true" title="More information"
+      [routerLink]="['../details', recipe.id]"></i>
+    <i class="fa fa-pencil clicable" aria-hidden="true" title="Edit" [routerLink]="['../edit', recipe.id]"></i>
+    <i class="fa fa-trash clicable" aria-hidden="true" title="Delete" (click)="deleteRecipe(recipe.id)"></i>
+  </div>
+</div>

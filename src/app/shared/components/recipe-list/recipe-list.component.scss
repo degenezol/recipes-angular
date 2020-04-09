@@ -1,0 +1,13 @@
+.recipeList {
+  width    : 100%;
+  display  : flex;
+  flex-wrap: wrap;
+
+  .recipeList__item {
+    width  : 20%;
+    margin : 10px;
+    padding: 10px;
+    border : 1px solid lightgray;
+    color  : gray;
+  }
+}

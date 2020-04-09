@@ -1,0 +1,60 @@
+.addRecipe__form {
+  width : 30%;
+  margin: 0 auto;
+
+  div {
+    margin: 20px 0;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  select {
+    width: 40%;
+  }
+
+  .warning {
+    color      : red;
+    font-weight: bold;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .plusButton {
+    margin-left: 20px;
+
+    .fa-plus {
+      width: 20px;
+    }
+  }
+
+  .ingredients {
+    border: 1px solid lightgray;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .fa-times {
+      color: white;
+      background-color: red;
+      font-size: 30px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .submitButton {
+    display: block;
+    margin : 20px 0 0 auto;
+    padding: 10px 40px;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: auto;
+    }
+  }
+}
